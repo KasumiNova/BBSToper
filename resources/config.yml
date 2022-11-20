@@ -12,6 +12,15 @@
 #DEBUG模式
 debug: false
 
+#HTTP 代理服务器设置
+http-proxy:
+    #启用 HTTP 代理
+    enabled: false
+    #HTTP 代理服务器 IP
+    ip: '127.0.0.1'
+    #HTTP 代理服务器端口
+    port: '7890'
+
 #数据库设置
 database:
     #表名前缀, 在sqlite和mysql都有效

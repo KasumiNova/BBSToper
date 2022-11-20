@@ -13,6 +13,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public enum Option {
 	DEBUG("debug"),
+	HTTP_PROXY_ENABLED("http-proxy.enabled"),
+	HTTP_PROXY_IP("http-proxy.ip"),
+	HTTP_PROXY_PORT("http-proxy.port"),
 	DATABASE_TYPE("database.type"),
 	DATABASE_PREFIX("database.prefix"),
 	DATABASE_TIMINGRECONNECT("timingreconnect"),

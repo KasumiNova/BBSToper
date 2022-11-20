@@ -1,6 +1,8 @@
 package moe.feo.bbstoper;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,7 +36,13 @@ public class Crawler {
 				+ "&mobile=no";
 		Document doc = null;
 		try {
-			doc = Jsoup.connect(url).get();
+			//是否使用代理服务器获取信息
+			if (Option.HTTP_PROXY_ENABLED.getBoolean()) {
+				Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(Option.HTTP_PROXY_IP.getString(), Option.HTTP_PROXY_PORT.getInt()));
+				doc = Jsoup.connect(url).proxy(proxy).get();
+			} else {
+				doc = Jsoup.connect(url).get();
+			}
 		} catch (IOException e) {
 			if (Option.DEBUG.getBoolean()) {
 				e.printStackTrace(); // 这里经常会因为网络连接不顺畅而报错
